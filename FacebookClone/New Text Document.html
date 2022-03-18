@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="index.css">
+
+</head>
+<body class="bg-light">
+    
+    <nav class=" px-0 px-md-1 bg-white navbar  fixed-top">
+        <div class=" container-fluid row ">
+
+            <div class="d-flex justify-content-start align-items-center col-1 col-md-3" id="the-left-part">
+                <a href="" class="mx-2"><i class="bi bi-facebook display-6 text-primary"></i></a>
+                <input type="text" name="" id="searchBox">
+                <button onclick="transformToSearchBox(id)" class="btn search-logo" id="searchIcon"><i class="bi bi-search fs-6 text-secondary "></i></button>
+            </div>
+            
+            <div class="d-none d-md-flex col-8 col-md-6 justify-content-md-around justify-content-center  nav-tabs" id="the-middle-part">
+                <button class="btn btn-secondary-outline   middle-button w-100" onclick="makeActiveTab(id)" id="home-tab">
+                    <i class="bi bi-house fs-4 text-secondary"></i>
+                </button>
+            
+                <button class="btn btn-secondary-outline   middle-button w-100" onclick="makeActiveTab(id)" id="watch-tab">
+                    <i class="bi bi-collection-play fs-4 text-secondary"></i>
+                </button>
+               
+                <button class="btn btn-secondary-outline   middle-button w-100" onclick="makeActiveTab(id)" id="marketplace-tab">
+                    <i class="bi bi-shop-window fs-4 text-secondary"></i>
+                </button>
+                <button class="btn btn-secondary-outline   middle-button w-100" onclick="makeActiveTab(id)" id="group-tab">
+                    <i class="bi bi-people-fill fs-4 text-secondary"></i>
+                </button>
+                <button class="btn btn-secondary-outline   middle-button w-100" onclick="makeActiveTab(id)" id="gaming-tab">
+                    <i class="bi bi-window-sidebar fs-4 text-secondary"></i>
+                </button>
+            </div>
+            
+            <div class="d-flex col-3 col-md-3 justify-content-end align-items-center pe-0 pe-md-3" id="the-right-part">
+                <div class="d-none d-md-block dropdown">
+                    <button class="btn search-logo mx-1 dropdown-toggle" type="button" id="createMenuButton" data-bs-toggle="dropdown" area-expanded="false">
+                        <i class="bi bi-plus-lg text-secondary"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end p-3" area-labelledby="createMenuButton">
+                        <li><h4 class="mx-2">Create</h4><hr class="text-secondary"></li>
+
+                        <li class="d-flex flex-row justify-content-start mt-2 btn p-0 dropdown-item">
+                            <div class="left-bar-icon align-self-center mx-2"><i class="bi bi-flag btn "></i></div>
+                            <div class="align-self-baseline mx-3 my-2 py-1 text-start">
+                                <h6 class="fw-bold">Pages</h6>
+                                <p class="text-secondary m-0 p-0">Create A Page To Connect With Your Fans</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start mt-2 btn p-0 dropdown-item">
+                            <div class="left-bar-icon align-self-center mx-2"><i class="bi bi-shop-window btn text-secondary"></i></i></div>
+                            <div class="align-self-baseline mx-3 my-2 py-1 text-start">
+                                <h6 class="fw-bold">MarketPlace</h6>
+                                <p class="text-secondary m-0 p-0">Create A Sell Post</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start mt-2 btn p-0 dropdown-item">
+                            <div class="left-bar-icon align-self-center mx-2"><i class="bi bi-people-fill btn text-secondary"></i></i></i></div>
+                            <div class="align-self-baseline mx-3 my-2 py-1 text-start">
+                                <h6 class="fw-bold">Group</h6>
+                                <p class="text-secondary m-0 p-0">Create Group With Your Peers</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start mt-2 btn p-0 dropdown-item">
+                            <div class="left-bar-icon align-self-center mx-2"><i class="bi bi-shop-window btn text-secondary"></i></i></div>
+                            <div class="align-self-baseline mx-3 my-2 py-1 text-start">
+                                <h6 class="fw-bold">MarketPlace</h6>
+                                <p class="text-secondary m-0 p-0">Create A Sell Post</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start mt-2 btn p-0 dropdown-item">
+                            <div class="left-bar-icon align-self-center mx-2"><i class="bi bi-shop-window btn text-secondary"></i></i></div>
+                            <div class="align-self-baseline mx-3 my-2 py-1 text-start">
+                                <h6 class="fw-bold">MarketPlace</h6>
+                                <p class="text-secondary m-0 p-0">Create A Sell Post</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="dropdown">
+                    <button class="btn search-logo mx-1 dropdown-toggle" type="button" id="messengerMenuButton" data-bs-toggle="dropdown" area-expanded="false">
+                        <i class="bi bi-messenger text-secondary"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end p-3" area-labelledby="messengerMenuButton">
+                        <li>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h4 class="mx-2">Messenger</h4>
+                                </div>
+                                <div class="d-flex">
+                                    <i class="bi bi-three-dots mx-1 btn"></i>
+                                    <i class="bi bi-arrows-fullscreen mx-1 btn"></i>
+                                    <i class="bi bi-pencil-square mx-1 btn"></i>
+                                </div>
+                            </div>
+                            <hr class="text-secondary">
+                        </li>
+                        <li>
+                            <input class="rounded-pill text-light bg-light w-100" type="text" placeholder=" Search Messages">
+                        </li>
+                        
+                        <li class="d-flex flex-row justify-content-start messenger-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="80px" width="80px"></div>
+                            <div class="align-self-center mx-3 left-bar-text ">
+                                <h6 class="m-0">Mubassir Ahmed Turjo</h6>
+                                <p class="lh-lg">Hello From The Other side</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start messenger-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="80px" width="80px"></div>
+                            <div class="align-self-center mx-3 left-bar-text ">
+                                <h6 class="m-0">Mubassir Ahmed Turjo</h6>
+                                <p class="lh-lg">Hello From The Other side</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start messenger-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="80px" width="80px"></div>
+                            <div class="align-self-center mx-3 left-bar-text ">
+                                <h6 class="m-0">Mubassir Ahmed Turjo</h6>
+                                <p class="lh-lg">Hello From The Other side</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start messenger-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="80px" width="80px"></div>
+                            <div class="align-self-center mx-3 left-bar-text ">
+                                <h6 class="m-0">Mubassir Ahmed Turjo</h6>
+                                <p class="lh-lg">Hello From The Other side</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start messenger-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="80px" width="80px"></div>
+                            <div class="align-self-center mx-3 left-bar-text ">
+                                <h6 class="m-0">Mubassir Ahmed Turjo</h6>
+                                <p class="lh-lg">Hello From The Other side</p>
+                            </div>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn search-logo mx-1 dropdown-toggle" type="button" id="notificationMenuButton" data-bs-toggle="dropdown" area-expanded="false">
+                        <i class="bi bi-bell-fill text-secondary"></i>
+                    </button>
+
+                    <ul class="dropdown-menu dropdown-menu-end p-3" area-labelledby="notificationMenuButton">
+                        <li>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h4 class="mx-2">Notification</h4>
+                                </div>
+                                <div class="d-flex">
+                                    <i class="bi bi-three-dots mx-1 btn"></i>
+                                </div>
+                            </div>
+                            <hr class="text-secondary">
+                        </li> 
+                        <li class="d-flex flex-row justify-content-start messenger-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="80px" width="80px"></div>
+                            <div class="align-self-center mx-3 left-bar-text">
+                                <p class="lh-lg text-start"> <strong>Mubassir Ahmed Turjo </strong>Commented on your post Hello From The Other side</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start messenger-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="80px" width="80px"></div>
+                            <div class="align-self-center mx-3 left-bar-text">
+                                <p class="lh-lg text-start"> <strong>Mubassir Ahmed Turjo </strong>Commented on your post Hello From The Other side</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start messenger-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="80px" width="80px"></div>
+                            <div class="align-self-center mx-3 left-bar-text">
+                                <p class="lh-lg text-start"> <strong>Mubassir Ahmed Turjo </strong>Commented on your post Hello From The Other side</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start messenger-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="80px" width="80px"></div>
+                            <div class="align-self-center mx-3 left-bar-text">
+                                <p class="lh-lg text-start"> <strong>Mubassir Ahmed Turjo </strong>Commented on your post Hello From The Other side</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start messenger-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="80px" width="80px"></div>
+                            <div class="align-self-center mx-3 left-bar-text">
+                                <p class="lh-lg text-start"> <strong>Mubassir Ahmed Turjo </strong>Commented on your post Hello From The Other side</p>
+                            </div>
+                        </li>
+                    </ul>  
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn search-logo mx-1 dropdown-toggle" type="button" id="accountControlMenuButton" data-bs-toggle="dropdown" area-expanded="false">
+                        <i class="bi bi-caret-down-fill text-secondary"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end p-3" area-labelledby="accountControlMenuButton">
+                        <li class="d-flex flex-row justify-content-start messenger-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="80px" width="80px"></div>
+                            <div class="align-self-center mx-3 left-bar-text ">
+                                <h6 class="m-0">Mubassir Ahmed Turjo</h6>
+                                <p class="lh-lg text-start">See your profile</p>
+                            </div>
+                            
+                        </li>
+                        <hr>
+                        <li class="d-flex flex-row justify-content-start mt-2 btn p-0 dropdown-item">
+                            <div class="left-bar-icon align-self-center mx-2"><i class="bi bi-shop-window btn text-secondary"></i></div>
+                            <div class="align-self-baseline mx-3 my-2 py-1 text-start">
+                                <h6 class="fw-bold">Give Feedback</h6>
+                                <p class="text-secondary m-0 p-0">Help Us Improve</p>
+                            </div>
+                        </li>
+                        <hr>
+                        
+                        <li class="d-flex flex-row justify-content-start mt-2 btn p-0 dropdown-item">
+                            <div class="left-bar-icon align-self-center mx-2"><i class="bi bi-gear-fill btn"></i></div>
+                            <div class="align-self-baseline mx-3 my-2 py-1 text-start">
+                                <h6 class="fw-bold">Setting</h6>
+                                <p class="text-secondary m-0 p-0">Change Settings</p>
+                            </div>
+                        </li>
+                        
+                        <li class="d-flex flex-row justify-content-start mt-2 btn p-0 dropdown-item">
+                            <div class="left-bar-icon align-self-center mx-2"><i class="bi bi-question-circle-fill btn"></i></div>
+                            <div class="align-self-baseline mx-3 my-2 py-1 text-start">
+                                <h6 class="fw-bold">Help</h6>
+                                <p class="text-secondary m-0 p-0">Need Help With Something ?</p>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start mt-2 btn p-0 dropdown-item">
+                            <div class="left-bar-icon align-self-center mx-2"><i class="bi bi-question-circle-fill btn"></i></div>
+                            <div class="align-self-baseline mx-3 my-2 py-1 text-start">
+                                <h6 class="fw-bold">Logout</h6>
+                                <p class="text-secondary m-0 p-0">Log out of the app</p>
+                            </div>
+                        </li>
+
+                        <li class="d-flex flex-wrap flex-row justify-content-start mt-5 p-0">
+                            <a class="text-secondary left-bar-link-sm mx-1" href="">Privacy</a>
+                            <a class="text-secondary left-bar-link-sm mx-1" href="">Shortcut</a>
+                            <a class="text-secondary left-bar-link-sm mx-1" href="">Ad Choices</a>
+                            <a class="text-secondary left-bar-link-sm mx-1" href="">Cookies</a>
+                            <a class="text-secondary left-bar-link-sm mx-1" href="">Career</a>
+                            <a class="text-secondary left-bar-link-sm mx-1" href="">Facebook 2021</a>
+                            <a class="text-secondary left-bar-link-sm mx-1" href="">more</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            
+        </div>
+    </nav>
+
+
+    <div class="row" id="bdy">
+        <div class="col-md-3 "id="left-bar">
+            <ul class="my-4 px-1 mx-2">
+                <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                        <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                        <div class="align-self-center mx-3 fw-bold left-bar-text">Mubassir Ahmed Turjo</div>
+                </li>
+                <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                        <div class="left-bar-icon"><i class="bi bi-flag btn "></i></div>
+                        <div class="align-self-center mx-3 fw-bold left-bar-text">Pages</div>
+                </li>
+                <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                        <div class="left-bar-icon"><i class="bi bi-shop-window fs-4 text-secondary"></i></div>
+                        <div class="align-self-center mx-3 fw-bold left-bar-text">MarketPlace</div>
+                </li>
+                <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                        <div class="left-bar-icon"><i class="bi bi-people-fill fs-4 text-secondary"></i></div>
+                        <div class="align-self-center mx-3 fw-bold left-bar-text">Groups</div>
+                </li>
+                <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                        <div class="left-bar-icon"><i class="bi bi-collection-play fs-4 text-secondary"></i></div>
+                        <div class="align-self-center mx-3 fw-bold left-bar-text">Groups</div>
+                </li>
+                <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                        <div class="left-bar-icon"><i class="bi bi-window-sidebar fs-4 text-secondary"></i></div>
+                        <div class="align-self-center mx-3 fw-bold left-bar-text">Events</div>
+                </li>
+                <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                        <div class="left-bar-icon"><i class="bi bi-messenger fs-4 text-secondary"></i></div>
+                        <div class="align-self-center mx-3 fw-bold left-bar-text">Messages</div>
+                </li>
+                <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                        <div class="left-bar-icon"><i class="bi bi-clock-fill fs-4"></i></div>
+                        <div class="align-self-center mx-3 fw-bold left-bar-text">Memories</div>
+                </li>
+                <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                        <div class="left-bar-icon"><i class="bi bi-calendar4-event fs-4"></i></div>
+                        <div class="align-self-center mx-3 fw-bold left-bar-text">Events</div>
+                </li>
+                <div  id="left-bar-seemore">
+                    <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class="left-bar-icon"><i class="bi bi-people-fill fs-4 text-secondary"></i></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Groups</div>
+                    </li>
+                    <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class="left-bar-icon"><i class="bi bi-collection-play fs-4 text-secondary"></i></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Groups</div>
+                    </li>
+                    <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class="left-bar-icon"><i class="bi bi-window-sidebar fs-4 text-secondary"></i></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Events</div>
+                    </li>
+                </div>
+                <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0" id="left-bar-seemoreitem">
+                        <div class="left-bar-icon"><i class="bi bi-caret-down-fill fs-4"></i></div>
+                        <div class="btn align-self-center mx-3 fw-bold left-bar-text">See More</div>
+                </li>
+                <hr>
+                <li class="bg-light p-1  btn p-0">
+                        <div class="fw-bold text-secondary">Your Shortcuts</div>
+                </li>
+
+                <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                    <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                    <div class="align-self-center mx-3 fw-bold left-bar-text">Cineshots</div>
+                </li>
+                <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                    <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                    <div class="align-self-center mx-3 fw-bold left-bar-text">LaughterPage</div>
+                </li>
+                
+                <li class="d-flex flex-wrap flex-row justify-content-start bg-light mt-5 btn p-0 ">
+                    <a class="text-secondary left-bar-link-sm mx-1 text-sm" href="">Privacy</a>
+                    <a class="text-secondary left-bar-link-sm mx-1" href="">Shortcut</a>
+                    <a class="text-secondary left-bar-link-sm mx-1" href="">Ad Choices</a>
+                    <a class="text-secondary left-bar-link-sm mx-1" href="">Cookies</a>
+                    <a class="text-secondary left-bar-link-sm mx-1" href="">Career</a>
+                    <a class="text-secondary left-bar-link-sm mx-1" href="">Facebook 2021</a>
+                    <a class="text-secondary left-bar-link-sm mx-1" href="">more</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <!-- <div class="col-md-4"></div>
+            <div class="col-md-5"></div> -->
+            
+            <div class="col-md-3 " id="right-bar">
+
+                <ul class="my-0 px-1 mx-2" style="direction:ltr">
+                    <div id="sponsored-section-right">
+                        <h6 class="text-secondary">Sponsored</h6>
+                        <li class="d-flex flex-row justify-content-start bg-light right-bar-item mt-0 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded"  style="max-height:150px"></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">
+                                <p>This Man Just swam accross the english Channel !</p>
+                                <small class="text-secondary">www.visitnow.com</small>
+                            </div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start bg-light right-bar-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded"  style="max-height:150px"></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">
+                                <p>This Man Just swam accross the english Channel !</p>
+                                <small class="text-secondary">www.visitnow.com</small>
+                            </div>
+                        </li>
+                        <hr class="m-0">
+                        <h6 class="text-secondary">Contacts</h6>
+                        <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Mubassir Ahmed Turjo</div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class=""><img src="./images/pramit.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Musaddikur Rahman</div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Begum Rokeya</div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class=""><img src="./images/gyani.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Sibbir Ahmed</div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class=""><img src="./images/pramit.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Musaddikur Rahman</div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Begum Rokeya</div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class=""><img src="./images/gyani.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Sibbir Ahmed</div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class=""><img src="./images/pramit.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Musaddikur Rahman</div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Begum Rokeya</div>
+                        </li>
+                        <li class="d-flex flex-row justify-content-start bg-light left-bar-item mt-2 btn p-0">
+                            <div class=""><img src="./images/gyani.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="align-self-center mx-3 fw-bold left-bar-text">Sibbir Ahmed</div>
+                        </li>
+                        
+                    </div>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3"><hr></div>
+            <div class="col-md-6"id="middle-bar">
+                <div class="d-flex justify-content-center stories">
+                    <div class="card mt-1 rounded mx-1" style="width:120px;height:150px">
+                        <img src="/images/test.jpg" class="img-fluid" style="max-width:100%" alt="...">
+                    </div>
+                    <div class="card mt-1 rounded mx-1" style="width:100px;height:150px">
+                        <img src="/images/pramit.jpg" class="img-fluid" style="max-width:100%" alt="...">
+                    </div>
+                    <div class="card mt-1 rounded mx-1" style="width:100px;height:150px">
+                        <img src="/images/pramit.jpg" class="img-fluid" style="max-width:100%" alt="...">
+                    </div>
+                    <div class="card mt-1 rounded mx-1" style="width:100px;height:150px">
+                        <img src="/images/gyani.jpg" class="img-fluid" style="max-width:100%" alt="...">
+                    </div>
+                    <div class="card mt-1 rounded mx-1" style="width:100px;height:150px">
+                        <img src="/images/turjo.jpg" class="img-fluid" style="max-width:100%" alt="...">
+                    </div>
+                    <div class="card mt-1 rounded mx-1" style="width:100px;height:150px">
+                        <img src="/images/pramit.jpg" class="img-fluid" style="max-width:100%" alt="...">
+                    </div>
+                </div>
+
+                <div class="m-4 border rounded-3 bg-white" id="status-box">
+                    <div class="my-2 p-2">
+                        <div class="d-flex container ">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <input type="text" class="lh-lg w-100 rounded-pill bg-light mx-3" placeholder="  What's On Your Mind" id="status"/>
+                        </div>
+                        <div class="container"><hr></div>
+                        <div class="d-flex justify-content-evenly">
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-camera-video-fill fs-4" style="color:crimson"></i>
+                                <h6 class="align-self-center my-0 mx-1">Live Video</h6>
+                            </button>
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-card-image fs-4" style="color:mediumseagreen"></i>
+                                <h6 class="align-self-center my-0 mx-1">Photo</h6>
+                            </button>
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-emoji-smile fs-4" style="color:goldenrod"></i>
+                                <h6 class="align-self-center my-0 mx-1">Feeling</h6>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                <div class="m-4 border rounded-3 bg-white" id="status-box-friends">
+                    <div class="m-2 p-2">
+                        <div class="d-flex container ">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="w-100 mx-3 fw-bold">
+                                <p class="m-0">Mubassir Ahmed Turjo</p>
+                                <small>7hrs</small>
+                                <i class="bi bi-person-circle text-secondary"></i>
+                            </div>
+                        </div>
+            
+                        <div class="container m-2">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis, iure?</p>
+                        </div>
+                        <hr class="m-0">
+                        <div class="d-flex justify-content-evenly p-1">
+                            
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-hand-thumbs-up fs-4"></i>
+                                <h6 class="align-self-center my-0 mx-1">Like</h6>
+                            </button>
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-chat-left fs-4"></i>
+                                <h6 class="align-self-center my-0 mx-1">Comment</h6>
+                            </button>
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-box-arrow-up-right fs-4"></i>
+                                <h6 class="align-self-center my-0 mx-1">Share</h6>
+                            </button>
+                            
+                        </div>
+                        <hr class="m-0">
+                        <div>
+                            <div class="d-flex container mt-2 ">
+                                <div class="align-self-center"><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                                <div class="w-100">
+                                    <div class="m-2 p-2 bg-light  rounded-3">
+                                        <p class=" fw-bold m-0">Mubassir Ahmed Turjo</p>
+                                        <p class="m-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, quidem.</p>
+                                    </div>
+                                    <div class="mx-4">
+                                        <a class="m-1" href="">like</a>
+                                        <a class="m-1" href="">reply</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-3 mx-2 container ">
+                                    <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                                    <input type="text" class="lh-lg w-100 rounded-pill bg-light mx-3" placeholder=" Wrtie a comment..." id="status"/>
+                                    
+                            </div>
+                       </div>
+
+                    </div>
+                </div>
+                
+                <div class="m-4 border rounded-3 bg-white" id="status-box-friends">
+                    <div class="m-2 p-2">
+                        <div class="d-flex container ">
+                        <div class=""><img src="./images/pramit.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="w-100 mx-3 fw-bold">
+                                <p class="m-0">Mubassir Ahmed Turjo</p>
+                                <small>7hrs</small>
+                                <i class="bi bi-person-circle text-secondary"></i>
+                            </div>
+                        </div>
+            
+                        <div class="container m-2">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis, iure?</p>
+                        </div>
+                        <div class="container m-1">
+                            <img src="./images/test.jpg" class="img-fluid" alt="">
+                        </div>
+                        <hr class="m-0">
+                        <div class="d-flex justify-content-evenly p-1">
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-hand-thumbs-up fs-4"></i>
+                                <h6 class="align-self-center my-0 mx-1">Like</h6>
+                            </button>
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-chat-left fs-4"></i>
+                                <h6 class="align-self-center my-0 mx-1">Comment</h6>
+                            </button>
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-box-arrow-up-right fs-4"></i>
+                                <h6 class="align-self-center my-0 mx-1">Share</h6>
+                            </button>
+                        </div>
+                        <hr class="m-0">
+
+                        <div class="d-flex mt-3 mx-2 ">
+                                <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                                <input type="text" class="lh-lg w-100 rounded-pill bg-light mx-3" placeholder=" Wrtie a comment..." id="status"/>
+                                
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="m-4 border rounded-3 bg-white" id="status-box-friends">
+                    <div class="m-2 p-2">
+                        <div class="d-flex container ">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="w-100 mx-3 fw-bold">
+                                <p class="m-0">Mubassir Ahmed Turjo</p>
+                                <small>7hrs</small>
+                                <i class="bi bi-person-circle text-secondary"></i>
+                            </div>
+                        </div>
+            
+                        <div class="container m-2">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis, iure?</p>
+                        </div>
+                        <hr class="m-0">
+                        <div class="d-flex justify-content-evenly p-1">
+                            
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-hand-thumbs-up fs-4"></i>
+                                <h6 class="align-self-center my-0 mx-1">Like</h6>
+                            </button>
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-chat-left fs-4"></i>
+                                <h6 class="align-self-center my-0 mx-1">Comment</h6>
+                            </button>
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-box-arrow-up-right fs-4"></i>
+                                <h6 class="align-self-center my-0 mx-1">Share</h6>
+                            </button>
+                            
+                        </div>
+                        <hr class="m-0">
+                    </div>
+                </div>
+
+
+                <div class="m-4 border rounded-3 bg-white" id="status-box-friends">
+                    <div class="m-2 p-2">
+                        <div class="d-flex container ">
+                            <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                            <div class="w-100 mx-3 fw-bold">
+                                <p class="m-0">Mubassir Ahmed Turjo</p>
+                                <small>7hrs</small>
+                                <i class="bi bi-person-circle text-secondary"></i>
+                            </div>
+                        </div>
+            
+                        <div class="container m-2">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis, iure?</p>
+                        </div>
+                        <hr class="m-0">
+                        <div class="d-flex justify-content-evenly p-1">
+                            
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-hand-thumbs-up fs-4"></i>
+                                <h6 class="align-self-center my-0 mx-1">Like</h6>
+                            </button>
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-chat-left fs-4"></i>
+                                <h6 class="align-self-center my-0 mx-1">Comment</h6>
+                            </button>
+                            <button class="d-flex status-btn">
+                                <i class="bi bi-box-arrow-up-right fs-4"></i>
+                                <h6 class="align-self-center my-0 mx-1">Share</h6>
+                            </button>
+                            
+                        </div>
+                        <hr class="m-0">
+                        <div>
+                            <div class="d-flex container mt-2 ">
+                                <div class="align-self-center"><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                                <div class="w-100">
+                                    <div class="m-2 p-2 bg-light  rounded-3">
+                                        <p class=" fw-bold m-0">Mubassir Ahmed Turjo</p>
+                                        <p class="m-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, quidem.</p>
+                                    </div>
+                                    <div class="mx-4">
+                                        <a class="m-1" href="">like</a>
+                                        <a class="m-1" href="">reply</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-3 mx-2 container ">
+                                    <div class=""><img src="./images/turjo.jpg" alt="" class="img-fluid rounded-circle" height="40px" width="40px"></div>
+                                    <input type="text" class="lh-lg w-100 rounded-pill bg-light mx-3" placeholder=" Wrtie a comment..." id="status"/>
+                                    
+                            </div>
+                       </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+    </div>
+
+    
+
+    
+
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

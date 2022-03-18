@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Form Validation</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script src="script.js"></script>
+	</head>
+
+	<body>
+		<main class="container">
+			<h1 style="text-align: center">Registration Form</h1>
+			<form name="RegForm" action="mailto:test@email.com?subject=Form Submission" method="get" onreset="resetf();" onsubmit="return validate()" novalidate>
+				<p>
+					<label for="name">Name: </label>
+					<input required type="text" size="65" id="name" name="name" />
+					<span class="error" id="err_name"></span>
+				</p>
+				<br />
+				<p>
+					<label for="address">Address: </label>
+					<input type="text" size="65" id="address" name="address" required />
+					<span class="error" id="err_address"></span>
+				</p>
+				<br />
+				<p>
+					<label for="email">Email: </label>
+					<input type="email" size="65" id="email" name="email" required novalidate />
+					<span class="error" id="err_email"></span>
+				</p>
+				<br />
+				<p>
+					<label for="password">Password: </label>
+					<input type="password" size="65" id="password" name="password" required />
+					<span class="error" id="err_password"></span>
+				</p>
+				<br />
+				<p>
+					<label for="confirm_password">Confirm Password: </label>
+					<input type="password" size="65" id="confirm_password" name="confirm_password" required />
+					<span class="error" id="err_confirm_password"></span>
+				</p>
+				<br />
+				<p>
+					<label for="telephone">Telephone: </label>
+					<input type="text" size="65" id="telephone" name="telephone" />
+					<span class="error" id="err_telephone"></span>
+				</p>
+				<br />
+
+				<p>
+					<label for="course">Select Your Course</label>
+					<select name="course" id="course">
+						<option value="8165">PROG8165</option>
+						<option value="8185" selected>PROG8185</option>
+						<option value="1620">PROG1620</option>
+						<option value="2745">PROG2745</option>
+					</select>
+					<!-- Add a select box here with 4 course options -->
+				</p>
+				<br />
+				<br />
+				<p>Comments: <textarea cols="55" name="Comment" id="Comment"> </textarea></p>
+				<p>
+					<input type="submit" value="send" name="Submit" />
+					<input type="reset" value="Reset" name="Reset" />
+				</p>
+			</form>
+		</main>
+	</body>
+</html>
